@@ -2,5 +2,11 @@ user_data.csv
 <<<<<<< HEAD
 User.pyc
 __pycache__/
+.vscode/
+=======
+<<<<<<< HEAD
+User.pyc
+__pycache__/
 =======
 >>>>>>> ccd2080d4d4719eec111cdb487232dd565cc79bc
+>>>>>>> 8c3d4b309303eb2fa6d561d9f20b95f82aec61ae
