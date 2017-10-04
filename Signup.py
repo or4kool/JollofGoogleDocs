@@ -1,4 +1,5 @@
 import re
+import hashlib
 from User import Users
 
 class Signup:
@@ -38,11 +39,29 @@ class Signup:
             print("Make sure your password has a number in it")
         elif re.search('[A-Z]',password) is None: 
             print("Make sure your password has a Capital Letter in it")
-        elif re.search(r"[^@]+@[^@]+\.[^@]+", password) is None:
-            print("Make sure your password has a special character in it")
         else:
             return True
+
+class Login:
+    def __init__(self, email, password):
+        self.email = email
+        self.password = password
+    
+    def new_user(self, user):
+        signin_credentials = {}
+        signin_info = ['email', 'password']
+
+        for user_data in signin_info:
+            signin_credentials[signin_info] = input("please enter your {}: ".format(signin_info))
+        result = user.authenticate(signin_credentials)
+
+        while not result:
+            for user_data in signin_info:
+                print("Wrong email or password")
+                signin_credentials[signin_info] = input("please enter your {}: ".format(signin_info))
+            result = user.authenticate(signin_credentials)
             
+        # call kab's module
 
 userpass = Signup()
 userpass.collect_user_info()
